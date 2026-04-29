@@ -23,11 +23,12 @@ Soy Ingeniero Civil Informático por la **Universidad de Valparaíso**. Actualme
 ## 📈 Estadísticas de GitHub
 
 <p align="center">
-  <img src="https://github-readme-streak-stats.herokuapp.com?user=AngelitUX&theme=highcontrast&locale=es&short_numbers=true" alt="GitHub Streak" />
-</p>
-
-<p align="center">
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=AngelitUX&layout=compact&theme=radical" alt="Lenguajes más usados" />
+  <table>
+    <tr>
+      <td><img src="https://github-readme-streak-stats.herokuapp.com?user=AngelitUX&theme=highcontrast&locale=es&short_numbers=true" alt="GitHub Streak" /></td>
+      <td><img src="https://github-readme-stats.vercel.app/api/top-langs/?username=AngelitUX&layout=compact&theme=radical" alt="Lenguajes más usados" /></td>
+    </tr>
+  </table>
 </p>
 
 ---
