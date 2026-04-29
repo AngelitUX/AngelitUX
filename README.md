@@ -40,7 +40,7 @@ Soy Ingeniero Civil Informático por la **Universidad de Valparaíso**. Actualme
 ---
 
 ## 📫 Conectemos
-* **LinkedIn:** [linkedin.com/in/tu-perfil](https://linkedin.com/in/tu-perfil)
+* **LinkedIn:** [https://www.linkedin.com/in/angelgpinoc/](https://www.linkedin.com/in/angelgpinoc/)
 * **Email:** angelgpinoc@gmail.com
 
 ---
