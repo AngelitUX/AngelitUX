@@ -1,27 +1,27 @@
-# 🛡️ Hola, soy Angel Pino
+# Hola, soy Angel Pino
 
-### Ingeniero Civil Informático | Ciberseguridad & DevSecOps
-📍 Valparaíso, Chile 🇨🇱
+### Ingeniero Civil Informático | Entusiasta de la Ciberseguridad & Desarrollo
+📍 Valparaíso, Chile 
 
-Soy Ingeniero Civil Informático por la **Universidad de Valparaíso**. Con una base sólida en desarrollo de software, redes y sistemas, actualmente enfoco mi carrera en la **Ciberseguridad**, orientándome a la seguridad defensiva (Blue Team), análisis de vulnerabilidades y la integración de prácticas de seguridad en el ciclo de vida del software (DevSecOps).
-
----
-
-## 🛠️ Stack & Herramientas
-
-### **Seguridad & Redes (Enfoque Principal)**
-* **Herramientas de Análisis & Auditoría:** Nmap, Wireshark, Burp Suite, OWASP Top 10.
-* **Redes e Infraestructura:** Configuración de DNS (BIND9), protocolos TCP/IP, reglas de firewall, Cloudflare.
-* **Sistemas Operativos:** Linux (Debian, Mint/Ubuntu, Arch), Bash scripting, administración de servidores y hardening básico.
-
-### **Desarrollo Seguro & Cloud**
-* **Lenguajes:** Python (automatización, scripts de seguridad, análisis), TypeScript, SQL.
-* **Contenedores & Despliegue:** Docker, aislamiento de servicios, entornos locales de laboratorio.
-* **Control de Versiones & CI/CD:** Git, GitLab CI/CD, análisis estático de código (SAST).
+Soy Ingeniero Civil Informático por la **Universidad de Valparaíso**. Con experiencia en desarrollo de software y administración de sistemas, actualmente estoy orientando mi aprendizaje hacia los fundamentos de la **Ciberseguridad**, explorando la seguridad en redes, la protección de aplicaciones web y las buenas prácticas en entornos Linux.
 
 ---
 
-## 📈 Estadísticas de GitHub
+## Stack & Tecnologías
+
+### **Fundamentos de Redes & Sistemas**
+* **Sistemas Operativos:** Linux (administración básica, entorno terminal, Bash scripting).
+* **Redes:** Protocolos esenciales (TCP/IP, HTTP/HTTPS, DNS), resolución de nombres e inspección básica de red.
+* **Seguridad en Aprendizaje:** Conceptos fundamentales de seguridad defensiva, OWASP Top 10 y buenas prácticas en desarrollo seguro.
+
+### **Desarrollo de Software & Herramientas**
+* **Lenguajes:** Python (scripts de automatización, análisis de datos), TypeScript / JavaScript, SQL.
+* **Contenedores & Entornos:** Docker (creación de entornos aislados y contenedores básicos).
+* **Control de Versiones:** Git, GitHub / GitLab.
+
+---
+
+## Estadísticas de GitHub
 
 <p align="center">
   <table>
@@ -34,16 +34,16 @@ Soy Ingeniero Civil Informático por la **Universidad de Valparaíso**. Con una 
 
 ---
 
-## 🎯 Objetivos Actuales
-* Profundizar en auditorías de seguridad web, análisis de tráfico y respuesta a incidentes.
-* Diseñar laboratorios locales para pruebas de concepto (PoC) y resolución de retos CTF (TryHackMe, Hack The Box).
-* Obtener certificaciones de entrada y nivel medio en ciberseguridad (CompTIA Security+, eJPT o BCTI).
+## Objetivos Actuales
+* Comprender a fondo la arquitectura de redes y los vectores de ataque comunes en aplicaciones web.
+* Practicar en plataformas de aprendizaje práctico y retos introductorios (como TryHackMe).
+* Implementar buenas prácticas de seguridad en mis propios proyectos de software.
 
 ---
 
-## 📫 Conectemos
+## Conectemos
 * **LinkedIn:** [https://www.linkedin.com/in/angelgpinoc/](https://www.linkedin.com/in/angelgpinoc/)
 * **Email:** angelgpinoc@gmail.com
 
 ---
-*“No existe un sistema totalmente seguro. Solo sistemas donde el costo de vulnerarlos supera el valor de lo protegido.”*
+*“In a city run by code and chrome, the only real firewall is how fast you can think.”*
