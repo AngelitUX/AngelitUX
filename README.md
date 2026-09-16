@@ -1,22 +1,23 @@
-# 🚀 Hola, soy Angel Pino
+# 🛡️ Hola, soy Angel Pino
 
-### Ingeniero Civil Informático | Aspirante a Científico de Datos
+### Ingeniero Civil Informático | Ciberseguridad & DevSecOps
 📍 Valparaíso, Chile 🇨🇱
 
-Soy Ingeniero Civil Informático por la **Universidad de Valparaíso**. Actualmente, estoy pivotando mi carrera desde el desarrollo de software full-stack hacia la **Ciencia de Datos**, aprovechando mi sólida base en ingeniería y algoritmos para extraer valor de los datos.
+Soy Ingeniero Civil Informático por la **Universidad de Valparaíso**. Con una base sólida en desarrollo de software, redes y sistemas, actualmente enfoco mi carrera en la **Ciberseguridad**, orientándome a la seguridad defensiva (Blue Team), análisis de vulnerabilidades y la integración de prácticas de seguridad en el ciclo de vida del software (DevSecOps).
 
 ---
 
-## 🛠️ Stack Tecnológico
+## 🛠️ Stack & Herramientas
 
-### **Data Science & Analytics (Especialización)**
-* **Lenguajes:** Python (Pandas, NumPy, Scikit-learn).
-* **Bases de Datos:** SQL (PostgreSQL/MySQL) para extracción y manipulación, MongoDB para datos no estructurados.
+### **Seguridad & Redes (Enfoque Principal)**
+* **Herramientas de Análisis & Auditoría:** Nmap, Wireshark, Burp Suite, OWASP Top 10.
+* **Redes e Infraestructura:** Configuración de DNS (BIND9), protocolos TCP/IP, reglas de firewall, Cloudflare.
+* **Sistemas Operativos:** Linux (Debian, Mint/Ubuntu, Arch), Bash scripting, administración de servidores y hardening básico.
 
-### **Desarrollo & Ingeniería de Software**
-* **Backend:** Node.js, TypeScript, Python.
-* **Frontend:** React, Vue.js, Desarrollo Web Moderno.
-* **DevOps & Herramientas:** Docker (Containerización), Git/GitLab (Flujos CI/CD).
+### **Desarrollo Seguro & Cloud**
+* **Lenguajes:** Python (automatización, scripts de seguridad, análisis), TypeScript, SQL.
+* **Contenedores & Despliegue:** Docker, aislamiento de servicios, entornos locales de laboratorio.
+* **Control de Versiones & CI/CD:** Git, GitLab CI/CD, análisis estático de código (SAST).
 
 ---
 
@@ -34,9 +35,9 @@ Soy Ingeniero Civil Informático por la **Universidad de Valparaíso**. Actualme
 ---
 
 ## 🎯 Objetivos Actuales
-* Profundizar en modelos de Machine Learning y Deep Learning.
-* Aplicar técnicas de optimización y simulación a problemas de negocio reales.
-* Contribuir a proyectos de código abierto relacionados con el análisis de datos.
+* Profundizar en auditorías de seguridad web, análisis de tráfico y respuesta a incidentes.
+* Diseñar laboratorios locales para pruebas de concepto (PoC) y resolución de retos CTF (TryHackMe, Hack The Box).
+* Obtener certificaciones de entrada y nivel medio en ciberseguridad (CompTIA Security+, eJPT o BCTI).
 
 ---
 
@@ -45,4 +46,4 @@ Soy Ingeniero Civil Informático por la **Universidad de Valparaíso**. Actualme
 * **Email:** angelgpinoc@gmail.com
 
 ---
-*“Los datos son el nuevo petróleo, pero solo si sabemos cómo refinarlos.”*
+*“No existe un sistema totalmente seguro. Solo sistemas donde el costo de vulnerarlos supera el valor de lo protegido.”*
