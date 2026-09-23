@@ -1,0 +1,30 @@
+{
+  "title": "Core Languages & Tooling",
+  "_comment": "Puntuación de 0 a 100 para lenguajes y herramientas clave. Modifica estos valores y el workflow redibujará el gráfico.",
+  "axes": [
+    {
+      "label": "Python",
+      "value": 88
+    },
+    {
+      "label": "Bash / Shell",
+      "value": 84
+    },
+    {
+      "label": "SQL & Bases de Datos",
+      "value": 80
+    },
+    {
+      "label": "Git & CI/CD",
+      "value": 85
+    },
+    {
+      "label": "TypeScript / JS",
+      "value": 78
+    },
+    {
+      "label": "HTML5 / CSS3",
+      "value": 82
+    }
+  ]
+}

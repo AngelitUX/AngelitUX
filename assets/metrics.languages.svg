@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="480" height="165" viewBox="0 0 480 165" role="img" aria-label="Most Used Languages">
+  <style>
+    .mono { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; }
+    .sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif; }
+  </style>
+  <rect width="478" height="163" x="1" y="1" rx="10" fill="#0d1117" stroke="#36224d" stroke-width="1"/>
+  
+  <text x="20" y="28" class="sans" font-size="14" font-weight="700" fill="#c77dff">Most Used Languages</text>
+  <text x="460" y="28" text-anchor="end" class="sans" font-size="11" fill="#8b949e">github-metrics</text>
+  <line x1="20" y1="38" x2="460" y2="38" stroke="#251838" stroke-width="1"/>
+
+  <!-- Language Progress Bar -->
+  <g transform="translate(20, 52)">
+    <clipPath id="bar-clip">
+      <rect width="440" height="10" rx="5"/>
+    </clipPath>
+    <g clip-path="url(#bar-clip)">
+      <rect x="0" y="0" width="160" height="10" fill="#3572A5"/>
+      <rect x="160" y="0" width="105" height="10" fill="#89e051"/>
+      <rect x="265" y="0" width="75" height="10" fill="#3178c6"/>
+      <rect x="340" y="0" width="55" height="10" fill="#e34c26"/>
+      <rect x="395" y="0" width="45" height="10" fill="#f1e05a"/>
+    </g>
+  </g>
+
+  <!-- Legend -->
+  <g transform="translate(20, 85)" class="mono" font-size="11.5">
+    <!-- Col 1 -->
+    <circle cx="5" cy="5" r="4.5" fill="#3572A5"/>
+    <text x="16" y="9" fill="#e6edf3" font-weight="600">Python</text>
+    <text x="75" y="9" fill="#ff9e00">36.4%</text>
+
+    <circle cx="5" cy="30" r="4.5" fill="#89e051"/>
+    <text x="16" y="34" fill="#e6edf3" font-weight="600">Shell</text>
+    <text x="75" y="34" fill="#ff9e00">23.8%</text>
+
+    <!-- Col 2 -->
+    <circle cx="160" cy="5" r="4.5" fill="#3178c6"/>
+    <text x="171" y="9" fill="#e6edf3" font-weight="600">TypeScript</text>
+    <text x="245" y="9" fill="#ff9e00">17.0%</text>
+
+    <circle cx="160" cy="30" r="4.5" fill="#e34c26"/>
+    <text x="171" y="34" fill="#e6edf3" font-weight="600">HTML/CSS</text>
+    <text x="245" y="34" fill="#ff9e00">12.5%</text>
+
+    <!-- Col 3 -->
+    <circle cx="320" cy="5" r="4.5" fill="#f1e05a"/>
+    <text x="331" y="9" fill="#e6edf3" font-weight="600">JavaScript</text>
+    <text x="405" y="9" fill="#ff9e00">10.3%</text>
+
+    <circle cx="320" cy="30" r="4.5" fill="#555555"/>
+    <text x="331" y="34" fill="#e6edf3" font-weight="600">C / C++</text>
+    <text x="405" y="34" fill="#8b949e">other</text>
+  </g>
+</svg>

@@ -1,0 +1,134 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 420" width="100%" height="420" role="img" aria-label="Angel Pino Terminal Profile Banner">
+  <defs>
+    <linearGradient id="l-bg-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fdfaff"/>
+      <stop offset="50%" stop-color="#f7f2ff"/>
+      <stop offset="100%" stop-color="#ede6f8"/>
+    </linearGradient>
+    <linearGradient id="l-border-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#7b2cbf"/>
+      <stop offset="50%" stop-color="#e85d04"/>
+      <stop offset="100%" stop-color="#9d4edd"/>
+    </linearGradient>
+    <pattern id="l-grid-pattern" width="30" height="30" patternUnits="userSpaceOnUse">
+      <path d="M 30 0 L 0 0 0 30" fill="none" stroke="#ded4f0" stroke-width="0.8" opacity="0.7"/>
+    </pattern>
+  </defs>
+
+  <style>
+    @keyframes blink { 0%, 49% { opacity: 1; } 50%, 100% { opacity: 0; } }
+    .mono { font-family: 'JetBrains Mono', 'Fira Code', 'Consolas', 'Courier New', monospace; }
+    .cursor { animation: blink 1.05s infinite; fill: #e85d04; }
+    .label { fill: #64748b; font-size: 13px; font-weight: 500; }
+    .val { fill: #0f172a; font-size: 13.5px; font-weight: 600; }
+    .hud-title { fill: #5a189a; font-size: 12px; font-weight: 700; letter-spacing: 0.12em; }
+    .hud-key { fill: #d9480f; font-size: 12px; font-weight: 600; }
+    .hud-val { fill: #334155; font-size: 12px; }
+  </style>
+
+  <!-- Background Base -->
+  <rect width="1200" height="420" rx="14" fill="url(#l-bg-grad)"/>
+  <rect width="1200" height="420" rx="14" fill="url(#l-grid-pattern)"/>
+  
+  <!-- Outer Border Frame -->
+  <rect x="1" y="1" width="1198" height="418" rx="13" fill="none" stroke="url(#l-border-grad)" stroke-width="1.8" opacity="0.85"/>
+
+  <!-- Top Window Header Bar -->
+  <path d="M 1 14 Q 1 1 14 1 L 1186 1 Q 1199 1 1199 14 L 1199 44 L 1 44 Z" fill="#eadefc"/>
+  <line x1="1" y1="44" x2="1199" y2="44" stroke="#d3c0f2" stroke-width="1"/>
+
+  <!-- Window Dots -->
+  <circle cx="25" cy="22" r="6" fill="#ff5f56"/>
+  <circle cx="45" cy="22" r="6" fill="#ffbd2e"/>
+  <circle cx="65" cy="22" r="6" fill="#27c93f"/>
+
+  <!-- Terminal Title -->
+  <text x="600" y="27" text-anchor="middle" class="mono" fill="#5a189a" font-size="12.5" font-weight="600">
+    angel@valparaiso-sec:~ (AngelitUX/profile) — zsh · Decimo Semestre UV
+  </text>
+  <rect x="1080" y="13" width="100" height="20" rx="4" fill="#fdf7ed" stroke="#e85d04" stroke-width="0.8"/>
+  <text x="1130" y="27" text-anchor="middle" class="mono" fill="#d9480f" font-size="10.5" font-weight="700">ONLINE ●</text>
+
+  <!-- Left Side: Terminal Interactive Prompt & Bio -->
+  <g transform="translate(35, 75)" class="mono">
+    <text x="0" y="15" fill="#7b2cbf" font-size="13.5" font-weight="700">┌──(</text>
+    <text x="32" y="15" fill="#d9480f" font-size="13.5" font-weight="700">angel㉿AngelitUX</text>
+    <text x="150" y="15" fill="#7b2cbf" font-size="13.5" font-weight="700">)-[</text>
+    <text x="175" y="15" fill="#334155" font-size="13.5">~/security-portfolio</text>
+    <text x="345" y="15" fill="#7b2cbf" font-size="13.5" font-weight="700">]</text>
+
+    <text x="0" y="38" fill="#7b2cbf" font-size="13.5" font-weight="700">└─$</text>
+    <text x="35" y="38" fill="#0f172a" font-size="13.5" font-weight="600">whoami --verbose --target="Práctica Profesional"</text>
+
+    <!-- CLI Output Card -->
+    <g transform="translate(15, 62)">
+      <line x1="-5" y1="-8" x2="-5" y2="195" stroke="#d3c0f2" stroke-width="2"/>
+
+      <text x="10" y="15" class="label">OPERADOR:</text>
+      <text x="135" y="15" class="val" fill="#5a189a">Ángel Gabriel Pino Cárdenas</text>
+
+      <text x="10" y="42" class="label">TITULO:</text>
+      <text x="135" y="42" class="val">Ingeniero Civil Informático (10º Semestre)</text>
+
+      <text x="10" y="69" class="label">UNIVERSIDAD:</text>
+      <text x="135" y="69" class="val">Universidad de Valparaíso, Chile 🇨🇱</text>
+
+      <text x="10" y="96" class="label">ESPECIALIDAD:</text>
+      <text x="135" y="96" class="val" fill="#d9480f">Ciberseguridad Defensiva &amp; Infraestructura de Redes</text>
+
+      <text x="10" y="123" class="label">UBICACIÓN:</text>
+      <text x="135" y="123" class="val">Valparaíso, Chile [33.0472° S, 71.6127° W]</text>
+
+      <text x="10" y="150" class="label">OBJETIVO:</text>
+      <text x="135" y="150" class="val" fill="#087f5b">Práctica Profesional Junior / Security &amp; NetOps</text>
+
+      <text x="10" y="177" class="label">FILOSOFÍA:</text>
+      <text x="135" y="177" fill="#7b2cbf" font-size="12" font-style="italic">“The only real firewall is how fast you can think.”</text>
+    </g>
+
+    <!-- Prompt 2 with Blinking Cursor -->
+    <g transform="translate(0, 280)">
+      <text x="0" y="18" fill="#7b2cbf" font-size="13.5" font-weight="700">└─$</text>
+      <text x="35" y="18" fill="#475569" font-size="13.5">nmap -sV -sC valpo.local &amp;&amp; audit --defense</text>
+      <rect x="395" y="5" width="8" height="16" class="cursor"/>
+    </g>
+  </g>
+
+  <!-- Right Side: Cyber Telemetry HUD Box -->
+  <g transform="translate(740, 75)" class="mono">
+    <rect x="0" y="0" width="425" height="305" rx="10" fill="#ffffff" stroke="#d3c0f2" stroke-width="1.4"/>
+    
+    <path d="M 0 10 Q 0 0 10 0 L 415 0 Q 425 0 425 10 L 425 38 L 0 38 Z" fill="#f1e8fc"/>
+    <text x="20" y="24" class="hud-title">SYS.TELEMETRY // SECURITY CORE</text>
+    <circle cx="395" cy="20" r="5" fill="#e85d04"/>
+
+    <g transform="translate(22, 60)">
+      <text x="0" y="15" class="hud-key">CORE STACK</text>
+      <text x="130" y="15" class="hud-val">Linux · Bash · Docker · Python</text>
+
+      <text x="0" y="42" class="hud-key">NETWORKS</text>
+      <text x="130" y="42" class="hud-val">TCP/IP · DNS · HTTP/S · LAN</text>
+
+      <text x="0" y="69" class="hud-key">SECURITY</text>
+      <text x="130" y="69" class="hud-val">OWASP Top 10 · Nmap · Hardening</text>
+
+      <text x="0" y="96" class="hud-key">DATABASES</text>
+      <text x="130" y="96" class="hud-val">SQL · PostgreSQL · Firebase Rules</text>
+
+      <text x="0" y="123" class="hud-key">FRAMEWORKS</text>
+      <text x="130" y="123" class="hud-val">Angular · NestJS · TypeScript</text>
+
+      <text x="0" y="150" class="hud-key">CERTIFICATES</text>
+      <text x="130" y="150" class="hud-val" fill="#d9480f">Cisco Ethical Hacker (En curso)</text>
+
+      <text x="0" y="177" class="hud-key">SECURITY GOAL</text>
+      <text x="130" y="177" class="hud-val">Defensa perimetral &amp; APIs seguras</text>
+
+      <line x1="0" y1="198" x2="380" y2="198" stroke="#e2d5f8" stroke-width="1"/>
+      <rect x="0" y="208" width="380" height="24" rx="5" fill="#fff4eb" stroke="#e85d04" stroke-width="0.8"/>
+      <text x="190" y="224" text-anchor="middle" fill="#d9480f" font-size="11.5" font-weight="700" letter-spacing="0.08em">
+        STATUS: CLEARANCE READY // DISPONIBLE
+      </text>
+    </g>
+  </g>
+</svg>
