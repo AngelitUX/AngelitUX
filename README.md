@@ -41,13 +41,13 @@
 
 Actualmente enfoco mi desarrollo profesional en la **seguridad informática defensiva**, el **análisis de vulnerabilidades (OWASP Top 10)**, el **hardening de entornos Linux** y el diseño e implementación de **redes seguras**. Cuento con experiencia práctica en desarrollo web full-stack modular y soporte técnico de infraestructura de red en el sector público.
 
-* 📍 **Ubicación:** Valparaíso, Chile.
-* 🎓 **Formación:** Licenciatura en Ciencias de la Ingeniería (Universidad de Valparaíso) · Egresando 2026.
-* 🛡️ **Certificaciones Cisco Networking Academy:**
+* **Ubicación:** Valparaíso, Chile.
+* **Formación:** Licenciatura en Ciencias de la Ingeniería (Universidad de Valparaíso) · Egresando 2026.
+* **Certificaciones Cisco Networking Academy:**
   * *Ethical Hacker* (En curso, 2026)
   * *Introduction to Cybersecurity* (2026)
-* 💼 **LinkedIn:** [www.linkedin.com/in/angelgpinoc](https://www.linkedin.com/in/angelgpinoc/)
-* 💡 **Filosofía:** Seguridad por diseño, mínimos privilegios y automatización reproducible.
+* **LinkedIn:** [www.linkedin.com/in/angelgpinoc](https://www.linkedin.com/in/angelgpinoc/)
+* **Filosofía:** Seguridad por diseño, mínimos privilegios y automatización reproducible.
 
 ---
 
@@ -72,7 +72,7 @@ Actualmente enfoco mi desarrollo profesional en la **seguridad informática defe
 
 ---
 
-### 📊 Radar de Habilidades y Stack Técnico
+###  Radar de Habilidades y Stack Técnico
 
 Los siguientes gráficos son generados vectorialmente de forma nativa vía **Python** y **GitHub Actions** en base a los modelos de telemetría de este repositorio:
 
@@ -101,7 +101,7 @@ Los siguientes gráficos son generados vectorialmente de forma nativa vía **Pyt
 
 ---
 
-### 📈 Actividad y Estadísticas en GitHub
+###  Actividad y Estadísticas en GitHub
 
 Tarjetas de estadísticas autohospedadas y libres de dependencias externas caídas, renderizadas por el workflow programado:
 
@@ -124,7 +124,7 @@ Tarjetas de estadísticas autohospedadas y libres de dependencias externas caíd
 
 ---
 
-### 💼 Experiencia Práctica Destacada
+###  Experiencia Práctica Destacada
 
 ```
 ┌──[ EstudiaUni.cl ] - Plataforma Universitaria Modular
@@ -141,6 +141,5 @@ Tarjetas de estadísticas autohospedadas y libres de dependencias externas caíd
 ---
 
 <div align="center">
-  <sub>Diseñado con estética retro-tecnológica · Automatizado con GitHub Actions &amp; Python</sub><br>
   <sub><i>“In a city run by code and chrome, the only real firewall is how fast you can think.”</i></sub>
 </div>
