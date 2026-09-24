@@ -16,13 +16,11 @@ Features:
     - Reduced animate tags from 1,823 down to 5 by hoisting opacity animations to parent groups.
     - 60 FPS buttery-smooth performance guaranteed with 0 CPU font re-rasterization overhead.
 - High-Density 850 dual-tone electric cyan traveller particles for crisp, bold silhouettes on Terminal (>_), Reliquias, and Candado.
-- Smooth cubic-bezier spline easing transitions (calcMode="spline").
-- Holographic Biometric Scanner Beam with smooth laser sweep.
-- Soft ambient Cyber Aura glow in the Display panel.
-- Tactical cyber HUD reticle corners with live telemetry (BIO-SCAN // LIVE, TARGET: ANGEL ✌, MATCH 100%, 60 FPS).
-- Bold, enlarged 400px silhouettes (Terminal >_, Las Reliquias de la Muerte, Padlock).
-- Authentic Linux Terminal interface with 3 modular SYSTEM SPECS sections, 14.5px font,
-  and clickable LinkedIn link: https://www.linkedin.com/in/angelgpinoc
+- Prominent, Highly Legible Typography:
+    - Increased font size for SYSTEM SPECS items (16.2px with bold 700 values).
+    - Enlarged section headers (13.5px bold).
+    - Clean, readable HUD telemetries (10.5px bold) and terminal headers (14px).
+- Clickable LinkedIn link: https://www.linkedin.com/in/angelgpinoc
 """
 
 from __future__ import annotations
@@ -41,7 +39,6 @@ ROOT = Path(__file__).resolve().parents[2]
 SOURCE = ROOT / "assets/source/peace_nobg.png"
 ASSETS = ROOT / "assets"
 LOGOS = Path(__file__).resolve().parent / "logos"
-DATA = Path(__file__).resolve().parent / "data"
 
 W, H = 1180, 610
 LOOP_SECONDS = 14.8
@@ -88,7 +85,7 @@ THEMES = {
         "line_sub": "#35225c",
         "prompt_user": "#00f0ff",
         "prompt_path": "#c77dff",
-        "muted": "#9d8dc2",
+        "muted": "#a695cf",
         "text": "#ffffff",
         "portrait": "#c77dff",
         "traveller": "#00f0ff",
@@ -107,7 +104,7 @@ THEMES = {
         "line_sub": "#ebdff9",
         "prompt_user": "#087f5b",
         "prompt_path": "#7b2cbf",
-        "muted": "#645282",
+        "muted": "#534273",
         "text": "#130626",
         "portrait": "#7b2cbf",
         "traveller": "#0284c7",
@@ -202,7 +199,6 @@ def floyd_steinberg(gray: np.ndarray) -> np.ndarray:
 def portrait_points(theme: str, rng: np.random.Generator) -> np.ndarray:
     """Return dot-matrix points (280x315) capturing face and peace sign fingers with classic retro stipple dots."""
     source = Image.open(SOURCE).convert("RGBA")
-    # Reduced size for comfortable framing inside DISPLAY:0 pane
     crop = source.crop((0, 270, 880, 1260)).resize((280, 315), Image.Resampling.LANCZOS)
     rgb = crop.convert("RGB")
     alpha = np.asarray(crop.getchannel("A"), dtype=np.float32) / 255.0
@@ -234,10 +230,8 @@ def portrait_points(theme: str, rng: np.random.Generator) -> np.ndarray:
         return np.zeros((0, 2), dtype=np.float32)
 
     # Centered in frame: display pane is x in [49..439] (w=390), y in [130..538] (h=408)
-    # image is w=280, h=315 -> x_offset = 49 + (390-280)//2 = 104, y_offset = 130 + (408-315)//2 = 176
     points = np.column_stack((104 + xs, 176 + ys)).astype(np.float32)
     
-    # Subsample to 18000 points so points are clearly stippled / dot-matrix style as at the beginning
     if len(points) > 18000:
         points = points[rng.choice(len(points), 18000, replace=False)]
     return points
@@ -300,11 +294,7 @@ def animate_values(points: list[np.ndarray], index: int) -> str:
 
 
 def make_matrix_rain(t: dict[str, str], rng: np.random.Generator) -> str:
-    """Generate high-performance, GPU-friendly falling purple hacker rain in the background.
-    
-    Uses zero-tspan vertical-rl text with hardware-accelerated linear-gradient fade trails,
-    eliminating all CPU glyph re-rasterization lag.
-    """
+    """Generate high-performance, GPU-friendly falling purple hacker rain in the background."""
     chars = "0123456789ABCDEFabcdef:;><_/{}+-~!#%&*λπ"
     cols = 16
     xs = [38 + i * 73 for i in range(cols)]
@@ -348,21 +338,12 @@ def render_svg(
     hallows = transport(term, logo_points["hallows"][:n])
     lock = transport(hallows, logo_points["lock"][:n])
 
-    # 14.8s Physics-based loop with smooth cubic-bezier transitions:
-    # 0.0 -> 3.2 (3.2s) Hold Face with Biometric Scan & organic micro-breathing
-    # 3.2 -> 4.7 (1.5s) Fluid Morph Face -> Terminal + Full Particle Dispersion of Face
-    # 4.7 -> 6.6 (1.9s) Hold Terminal
-    # 6.6 -> 8.0 (1.4s) Fluid Morph Terminal -> Reliquias
-    # 8.0 -> 9.9 (1.9s) Hold Reliquias
-    # 9.9 -> 11.3 (1.4s) Fluid Morph Reliquias -> Candado
-    # 11.3 -> 13.2 (1.9s) Hold Candado
-    # 13.2 -> 14.8 (1.6s) Fluid Cushion Return Candado -> Face (Full Particle Reassembly)
     times = [0.0, 3.2, 4.7, 6.6, 8.0, 9.9, 11.3, 13.2, 14.8]
     norm_times = [f"{t_val / LOOP_SECONDS:.3f}".rstrip("0").rstrip(".") if t_val > 0 else "0" for t_val in times]
     key_times = ";".join(norm_times)
 
     key_splines = ";".join([
-        "0.4 0 0.6 1",      # Organic live micro-shimmer during Face hold
+        "0.4 0 0.6 1",      # Live micro-shimmer during Face hold
         "0.35 0 0.15 1",    # Smooth Fluid Morph Face -> Terminal
         "0 0 1 1",          # Hold Terminal
         "0.35 0 0.15 1",    # Smooth Fluid Morph Terminal -> Reliquias
@@ -442,19 +423,19 @@ def render_svg(
         # ==================== PURPLE MATRIX CODE RAIN (BACKGROUND) ====================
         matrix_rain_svg,
 
-        # Barra de título superior
+        # Barra de título superior (Larger Font)
         f'<path d="M13 54H1167" stroke="{t["line"]}"/>',
         '<circle cx="36" cy="34" r="6" fill="#FF5F56"/>',
         '<circle cx="56" cy="34" r="6" fill="#FEBC2E"/>',
         '<circle cx="76" cy="34" r="6" fill="#28C840"/>',
         
         f'<text x="590" y="38" text-anchor="middle" fill="{t["muted"]}" '
-        'font-family="ui-monospace,SFMono-Regular,Consolas,monospace" font-size="12.5" font-weight="600">'
+        'font-family="ui-monospace,SFMono-Regular,Consolas,monospace" font-size="14" font-weight="700">'
         'angel@valpo-sec: ~ (bash)</text>',
         
-        # Línea de comando Linux ejecutada
-        f'<text x="35" y="80" fill="{t["text"]}" '
-        'font-family="ui-monospace,SFMono-Regular,Consolas,monospace" font-size="13">'
+        # Línea de comando Linux ejecutada (Larger Font)
+        f'<text x="35" y="81" fill="{t["text"]}" '
+        'font-family="ui-monospace,SFMono-Regular,Consolas,monospace" font-size="14.5">'
         f'<tspan fill="{t["prompt_user"]}" font-weight="700">angel@valpo-sec</tspan>'
         f'<tspan fill="{t["muted"]}">:</tspan>'
         f'<tspan fill="{t["prompt_path"]}" font-weight="700">~</tspan>'
@@ -466,7 +447,7 @@ def render_svg(
         f'<path d="M35 128H453" stroke="{t["line"]}"/>',
         
         f'<text x="48" y="119" fill="{t["chrome"]}" '
-        'font-family="ui-monospace,SFMono-Regular,Consolas,monospace" font-size="11.5" '
+        'font-family="ui-monospace,SFMono-Regular,Consolas,monospace" font-size="13" '
         'font-weight="700" letter-spacing="1">┌──[ DISPLAY:0 ]</text>',
         
         f'<path d="M49 138h12M49 138v12M439 138h-12M439 138v12M49 536h12M49 536v-12'
@@ -479,7 +460,6 @@ def render_svg(
     ]
 
     # Render 48 dynamic dispersion clusters for the base portrait
-    # Performance Optimization: Single group opacity animation hoists fade for all 48 clusters
     parts.append(
         '<g>'
         f'<animate attributeName="opacity" begin="0s" dur="{LOOP_SECONDS}s" '
@@ -508,7 +488,6 @@ def render_svg(
     parts.append("</g>")
 
     # 850 Partículas viajeras con brillo cian eléctrico a 60 FPS
-    # Performance Optimization: Single group opacity animation eliminates 850 individual animate tags!
     parts.append(
         '<g>'
         f'<animate attributeName="opacity" begin="0s" dur="{LOOP_SECONDS}s" '
@@ -543,20 +522,20 @@ def render_svg(
         '</g>',
         '</g>',
         
-        # Telemetría HUD Cyber en las esquinas de visualización
-        f'<circle cx="63" cy="147" r="3.2" fill="{t["accent"]}">'
+        # Telemetría HUD Cyber en las esquinas de visualización (Larger Font 10.5px)
+        f'<circle cx="63" cy="147" r="3.4" fill="{t["accent"]}">'
         '<animate attributeName="opacity" values="1;.2;1" dur="1.4s" repeatCount="indefinite"/></circle>',
-        f'<text x="73" y="151" fill="{t["accent"]}" font-family="ui-monospace,SFMono-Regular,Consolas,monospace" '
-        'font-size="9" font-weight="700" letter-spacing="1">BIO-SCAN // LIVE</text>',
+        f'<text x="73" y="151.5" fill="{t["accent"]}" font-family="ui-monospace,SFMono-Regular,Consolas,monospace" '
+        'font-size="10.5" font-weight="700" letter-spacing="1">BIO-SCAN // LIVE</text>',
         
-        f'<text x="425" y="151" text-anchor="end" fill="{t["muted"]}" font-family="ui-monospace,SFMono-Regular,Consolas,monospace" '
-        'font-size="9" font-weight="600" letter-spacing="0.5">TARGET: ANGEL ✌</text>',
+        f'<text x="425" y="151.5" text-anchor="end" fill="{t["muted"]}" font-family="ui-monospace,SFMono-Regular,Consolas,monospace" '
+        'font-size="10.5" font-weight="700" letter-spacing="0.5">TARGET: ANGEL ✌</text>',
         
-        f'<text x="60" y="525" fill="{t["muted"]}" font-family="ui-monospace,SFMono-Regular,Consolas,monospace" '
-        'font-size="9" font-weight="600" letter-spacing="0.5">SIGNAL: 60 FPS</text>',
+        f'<text x="60" y="525.5" fill="{t["muted"]}" font-family="ui-monospace,SFMono-Regular,Consolas,monospace" '
+        'font-size="10.5" font-weight="700" letter-spacing="0.5">SIGNAL: 60 FPS</text>',
         
-        f'<text x="425" y="525" text-anchor="end" fill="{t["accent"]}" font-family="ui-monospace,SFMono-Regular,Consolas,monospace" '
-        'font-size="9" font-weight="700" letter-spacing="0.5">MATCH: 100%</text>',
+        f'<text x="425" y="525.5" text-anchor="end" fill="{t["accent"]}" font-family="ui-monospace,SFMono-Regular,Consolas,monospace" '
+        'font-size="10.5" font-weight="700" letter-spacing="0.5">MATCH: 100%</text>',
     ])
 
     parts.extend(
@@ -569,27 +548,27 @@ def render_svg(
             f'<path d="M474 128H1146" stroke="{t["line"]}"/>',
             
             f'<text x="490" y="119" fill="{t["chrome"]}" '
-            'font-family="ui-monospace,SFMono-Regular,Consolas,monospace" font-size="11.5" '
+            'font-family="ui-monospace,SFMono-Regular,Consolas,monospace" font-size="13.5" '
             'font-weight="700" letter-spacing="1">┌──[ SYSTEM SPECS ]</text>',
             f'<text x="1135" y="119" text-anchor="end" fill="{t["prompt_user"]}" '
-            'font-family="ui-monospace,SFMono-Regular,Consolas,monospace" font-size="11.5" font-weight="700">'
+            'font-family="ui-monospace,SFMono-Regular,Consolas,monospace" font-size="13.5" font-weight="700">'
             'angel@valpo-sec ●</text>',
         ]
     )
 
-    # 3 Secciones distribuidas verticalmente para cubrir todo el alto del recuadro
+    # 3 Secciones con tipografía aumentada (16.2px) para máxima legibilidad
     value_right = 1127.0
-    font_size = 14.5
+    font_size = 16.2
     
     header_y = 152.0
-    row_y = 176.0
-    row_gap = 26.0
+    row_y = 176.5
+    row_gap = 25.5
     
     for s_idx, (section_title, rows) in enumerate(SECTIONS):
-        # Título de sección
+        # Título de sección (Enlarged 13.5px)
         parts.append(
             f'<text x="491" y="{num(header_y)}" fill="{t["chrome"]}" '
-            'font-family="ui-monospace,SFMono-Regular,Consolas,monospace" font-size="11.5" '
+            'font-family="ui-monospace,SFMono-Regular,Consolas,monospace" font-size="13.5" '
             f'font-weight="700" letter-spacing="1">{html.escape(section_title)}</text>'
         )
         
@@ -603,7 +582,7 @@ def render_svg(
             parts.append(
                 f'<text x="491" y="{num(row_y)}" fill="{t["muted"]}" '
                 f'font-family="ui-monospace,SFMono-Regular,Consolas,monospace" font-size="{font_size}" '
-                'font-weight="500">'
+                'font-weight="600">'
                 f"{html.escape(label)}</text>"
             )
             parts.append(
@@ -616,14 +595,14 @@ def render_svg(
                     f'<a href="https://{value}" target="_blank" rel="noopener noreferrer" class="link">'
                     f'<text x="{num(value_right)}" y="{num(row_y)}" text-anchor="end" '
                     f'fill="{t["chrome"]}" font-family="ui-monospace,SFMono-Regular,Consolas,monospace" '
-                    f'font-size="{font_size}" font-weight="600" textLength="{num(value_len)}" lengthAdjust="spacingAndGlyphs">'
+                    f'font-size="{font_size}" font-weight="700" textLength="{num(value_len)}" lengthAdjust="spacingAndGlyphs">'
                     f"{html.escape(value)}</text></a>"
                 )
             else:
                 parts.append(
                     f'<text x="{num(value_right)}" y="{num(row_y)}" text-anchor="end" '
                     f'fill="{t["text"]}" font-family="ui-monospace,SFMono-Regular,Consolas,monospace" '
-                    f'font-size="{font_size}" font-weight="600" textLength="{num(value_len)}" lengthAdjust="spacingAndGlyphs">'
+                    f'font-size="{font_size}" font-weight="700" textLength="{num(value_len)}" lengthAdjust="spacingAndGlyphs">'
                     f"{html.escape(value)}</text>"
                 )
             row_y += row_gap
@@ -635,7 +614,7 @@ def render_svg(
                 f'<path d="M491 {num(sep_y)}H1127" stroke="{t["line_sub"]}" stroke-dasharray="2 3"/>'
             )
             header_y = row_y + 6.0
-            row_y = header_y + 24.0
+            row_y = header_y + 24.5
 
     # Barra inferior de terminal Linux: Bloques de colores y prompt activo
     colors = ["#FF5F56", "#FEBC2E", "#28C840", "#00F0FF", "#C77DFF", "#FF7A00", "#FFFFFF"]
@@ -646,8 +625,8 @@ def render_svg(
     parts.extend(
         [
             "".join(color_rects),
-            f'<text x="240" y="574" fill="{t["text"]}" '
-            'font-family="ui-monospace,SFMono-Regular,Consolas,monospace" font-size="13">'
+            f'<text x="240" y="574.5" fill="{t["text"]}" '
+            'font-family="ui-monospace,SFMono-Regular,Consolas,monospace" font-size="14">'
             f'<tspan fill="{t["prompt_user"]}" font-weight="700">angel@valpo-sec</tspan>'
             f'<tspan fill="{t["muted"]}">:</tspan>'
             f'<tspan fill="{t["prompt_path"]}" font-weight="700">~</tspan>'
@@ -655,8 +634,8 @@ def render_svg(
             f'<rect x="372" y="562" width="8" height="14" fill="{t["prompt_user"]}">'
             '<animate attributeName="opacity" values="1;0;1" dur="1s" repeatCount="indefinite"/>'
             '</rect>',
-            f'<text x="1146" y="574" text-anchor="end" fill="{t["muted"]}" '
-            'font-family="ui-monospace,SFMono-Regular,Consolas,monospace" font-size="11.5">'
+            f'<text x="1146" y="574.5" text-anchor="end" fill="{t["muted"]}" '
+            'font-family="ui-monospace,SFMono-Regular,Consolas,monospace" font-size="13">'
             'Valparaíso, Chile</text>',
             "</svg>",
         ]
@@ -668,7 +647,6 @@ def main() -> None:
     if not SOURCE.exists():
         raise SystemExit(f"Missing source portrait: {SOURCE}")
     ASSETS.mkdir(parents=True, exist_ok=True)
-    DATA.mkdir(parents=True, exist_ok=True)
     logos = make_logos()
 
     for index, theme in enumerate(THEMES):
@@ -680,7 +658,6 @@ def main() -> None:
         }
         svg = render_svg(theme, portrait, sampled, rng)
         
-        (ASSETS / f"banner-{theme}.v18.svg").write_text(svg, encoding="utf-8")
         (ASSETS / f"banner-{theme}.svg").write_text(svg, encoding="utf-8")
         print(f"wrote banner-{theme}.svg ({len(portrait)} portrait points, {CLUSTER_COUNT} clusters, {TRAVELLER_COUNT} travellers)")
 

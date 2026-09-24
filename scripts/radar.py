@@ -28,22 +28,22 @@ from pathlib import Path
 # Retro-Tech Purple & Orange Theme
 THEMES = {
     "dark": {
-        "grid": "#36224d",
-        "spoke": "#251838",
-        "label": "#e6edf3",
-        "value": "#ff9e00",
-        "title": "#c77dff",
+        "grid": "#3a2554",
+        "spoke": "#2b1c40",
+        "label": "#f3f5f9",
+        "value": "#ffaa1a",
+        "title": "#d884ff",
         "fill": "#9d4edd",
         "stroke": "#ff7a00",
         "vertex": "#ffa200",
         "bg": "none",
     },
     "light": {
-        "grid": "#e2d5f8",
-        "spoke": "#ece4fa",
-        "label": "#1f2328",
+        "grid": "#dcd0f4",
+        "spoke": "#e8def7",
+        "label": "#130626",
         "value": "#d9480f",
-        "title": "#5a189a",
+        "title": "#480ca8",
         "fill": "#7b2cbf",
         "stroke": "#e85d04",
         "vertex": "#f48c06",
@@ -103,7 +103,7 @@ def from_github(user: str, token: str | None, limit: int, exclude: set[str], cur
 
 
 FONT = "ui-sans-serif,-apple-system,Segoe UI,Helvetica,Arial,sans-serif"
-LBL, VAL, TTL = 12.5, 11, 15
+LBL, VAL, TTL = 16.0, 15.0, 20.0
 
 
 def ring(radius, n, start=-math.pi / 2):
@@ -114,15 +114,26 @@ def ring(radius, n, start=-math.pi / 2):
     ]
 
 
-def text_width(s, font_size):
-    return len(s) * font_size * 0.62
+def text_width(s: str, font_size: float) -> float:
+    return len(s) * font_size * 0.61
+
+
+def split_label(label: str) -> list[str]:
+    """Split label into compact lines if long to prevent SVG width inflation on GitHub."""
+    if " & " in label and len(label) > 15:
+        p = label.split(" & ")
+        return [p[0] + " &", p[1]]
+    if " / " in label and len(label) > 13:
+        p = label.split(" / ")
+        return [p[0] + " /", p[1]]
+    return [label]
 
 
 def render(title, axes, theme: str, size: int, rings: int, show_values: bool, animate: bool) -> str:
     c = THEMES[theme]
     n = len(axes)
     r = size / 2 - 8
-    gap = 20
+    gap = 24
 
     vals = [max(0.0, min(100.0, v)) for _, v in axes]
     outer = ring(r, n)
@@ -132,27 +143,30 @@ def render(title, axes, theme: str, size: int, rings: int, show_values: bool, an
         ang = -math.pi / 2 + i * 2 * math.pi / n
         cosv, sinv = math.cos(ang), math.sin(ang)
         lx, ly = (r + gap) * cosv, (r + gap) * sinv
-        anchor = "middle" if abs(cosv) < 0.25 else ("start" if cosv > 0 else "end")
-        dy = 4 if abs(sinv) < 0.25 else (14 if sinv > 0 else -5)
-        labels.append((lx, ly + dy, anchor, label, vals[i]))
+        anchor = "middle" if abs(cosv) < 0.28 else ("start" if cosv > 0 else "end")
+        dy = 4 if abs(sinv) < 0.25 else (14 if sinv > 0 else -6)
+        lines = split_label(label)
+        labels.append((lx, ly + dy, anchor, lines, vals[i]))
 
     minx, maxx, miny, maxy = -r, r, -r, r
-    for lx, ly, anchor, label, v in labels:
-        w = max(text_width(label, LBL),
-                text_width(f"{v:g}", VAL) if show_values else 0.0)
+    line_h = LBL * 1.2
+    for lx, ly, anchor, lines, v in labels:
+        max_w = max(text_width(line, LBL) for line in lines)
+        if show_values:
+            max_w = max(max_w, text_width(f"{v:g}", VAL))
         if anchor == "start":
-            x0, x1 = lx, lx + w
+            x0, x1 = lx, lx + max_w
         elif anchor == "end":
-            x0, x1 = lx - w, lx
+            x0, x1 = lx - max_w, lx
         else:
-            x0, x1 = lx - w / 2, lx + w / 2
+            x0, x1 = lx - max_w / 2, lx + max_w / 2
         y0 = ly - LBL
-        y1 = ly + 4 + (VAL + 4 if show_values else 0)
+        y1 = ly + (len(lines) - 1) * line_h + 4 + (VAL + 4 if show_values else 0)
         minx, maxx = min(minx, x0), max(maxx, x1)
         miny, maxy = min(miny, y0), max(maxy, y1)
 
-    pad = 10
-    title_h = TTL + 14 if title else 0
+    pad = 12
+    title_h = TTL + 16 if title else 0
     W = round((maxx - minx) + 2 * pad)
     H = round((maxy - miny) + 2 * pad + title_h)
     ox, oy = -minx + pad, -miny + pad + title_h
@@ -173,7 +187,7 @@ def render(title, axes, theme: str, size: int, rings: int, show_values: bool, an
     if title:
         parts.append(
             f'<text x="{W / 2:.1f}" y="{pad + TTL:.0f}" text-anchor="middle" '
-            f'font-size="{TTL}" font-weight="700" fill="{c["title"]}">'
+            f'font-size="{TTL}" font-weight="800" fill="{c["title"]}">'
             f'{esc(title)}</text>'
         )
     parts.append(f'<g transform="translate({ox:.1f},{oy:.1f})">')
@@ -183,14 +197,14 @@ def render(title, axes, theme: str, size: int, rings: int, show_values: bool, an
         d = " ".join(f"{x:.1f},{y:.1f}" for x, y in ring(r * k / rings, n))
         parts.append(
             f'<polygon points="{d}" fill="none" stroke="{c["grid"]}" '
-            f'stroke-width="1" opacity="{0.35 + 0.5 * k / rings:.2f}"/>'
+            f'stroke-width="1.2" opacity="{0.40 + 0.5 * k / rings:.2f}"/>'
         )
 
     # Spokes
     for x, y in outer:
         parts.append(
             f'<line x1="0" y1="0" x2="{x:.1f}" y2="{y:.1f}" '
-            f'stroke="{c["spoke"]}" stroke-width="1"/>'
+            f'stroke="{c["spoke"]}" stroke-width="1.2"/>'
         )
 
     # Data shape
@@ -204,27 +218,31 @@ def render(title, axes, theme: str, size: int, rings: int, show_values: bool, an
             'keySplines="0.22 1 0.36 1" fill="freeze"/>'
         )
     parts.append(
-        f'<polygon points="{d}" fill="{c["fill"]}" fill-opacity="0.24" '
-        f'stroke="{c["stroke"]}" stroke-width="2.4" stroke-linejoin="round"/>'
+        f'<polygon points="{d}" fill="{c["fill"]}" fill-opacity="0.28" '
+        f'stroke="{c["stroke"]}" stroke-width="2.6" stroke-linejoin="round"/>'
     )
     for x, y in shape:
         parts.append(
-            f'<circle cx="{x:.1f}" cy="{y:.1f}" r="3.5" fill="{c["vertex"]}" '
-            f'stroke="{c["stroke"]}" stroke-width="1.2"/>'
+            f'<circle cx="{x:.1f}" cy="{y:.1f}" r="4.0" fill="{c["vertex"]}" '
+            f'stroke="{c["stroke"]}" stroke-width="1.4"/>'
         )
     parts.append("</g>")
 
-    # Axis labels
-    for lx, ly, anchor, label, v in labels:
-        parts.append(
-            f'<text x="{lx:.1f}" y="{ly:.1f}" text-anchor="{anchor}" '
-            f'font-size="{LBL}" font-weight="600" fill="{c["label"]}">'
-            f'{esc(label)}</text>'
-        )
-        if show_values:
+    # Axis labels (multiline support with increased font size)
+    for lx, ly, anchor, lines, v in labels:
+        base_y = ly
+        for line_idx, line in enumerate(lines):
+            curr_y = base_y + line_idx * line_h
             parts.append(
-                f'<text x="{lx:.1f}" y="{ly + VAL + 4:.1f}" text-anchor="{anchor}" '
-                f'font-size="{VAL}" font-weight="500" fill="{c["value"]}">{v:g}</text>'
+                f'<text x="{lx:.1f}" y="{curr_y:.1f}" text-anchor="{anchor}" '
+                f'font-size="{LBL}" font-weight="700" fill="{c["label"]}">'
+                f'{esc(line)}</text>'
+            )
+        if show_values:
+            val_y = base_y + (len(lines) - 1) * line_h + VAL + 4
+            parts.append(
+                f'<text x="{lx:.1f}" y="{val_y:.1f}" text-anchor="{anchor}" '
+                f'font-size="{VAL}" font-weight="700" fill="{c["value"]}">{v:g}</text>'
             )
 
     parts.append("</g></svg>")
@@ -245,40 +263,41 @@ def main(argv=None):
     p.add_argument("-o", "--out", type=Path, default=Path("assets/radar"),
                    help="output path WITHOUT extension")
     p.add_argument("--title", help="override the chart title ('' for none)")
-    p.add_argument("--size", type=int, default=440)
+    p.add_argument("--size", type=int, default=320)
     p.add_argument("--rings", type=int, default=4)
     p.add_argument("--limit", type=int, default=7,
-                   help="max axes when using --github")
-    p.add_argument("--exclude", default="html,css,shell,makefile,dockerfile,batchfile",
-                   help="comma-separated languages to skip in --github mode")
-    p.add_argument("--curve", type=float, default=0.5,
-                   help="--github axis scaling")
-    p.add_argument("--values", action="store_true", help="print the number per axis")
+                   help="max languages if pulling from GitHub (default: 7)")
+    p.add_argument("--exclude", default="html,css,jupyter notebook",
+                   help="comma-separated languages to drop from GitHub stats")
+    p.add_argument("--curve", type=float, default=0.55,
+                   help="power curve for GitHub stats to prevent the #1 lang from flattening the rest")
+    p.add_argument("--token", default=os.getenv("GITHUB_TOKEN"),
+                   help="GitHub API token (optional; reads GITHUB_TOKEN env var)")
+    p.add_argument("--values", action="store_true",
+                   help="print numeric value below each label")
     p.add_argument("--no-animate", dest="animate", action="store_false",
-                   help="disable the grow-in animation")
+                   help="skip the pulse-in SMIL animation")
+    p.set_defaults(animate=True)
+
     args = p.parse_args(argv)
 
     if args.github:
-        token = os.environ.get("GITHUB_TOKEN") or os.environ.get("GH_TOKEN")
-        excl = {s.strip().lower() for s in args.exclude.split(",") if s.strip()}
-        title, axes = from_github(args.github, token, args.limit, excl, args.curve)
+        exclude = {x.strip().lower() for x in args.exclude.split(",") if x.strip()}
+        title, axes = from_github(args.github, args.token, args.limit, exclude, args.curve)
     else:
-        if not args.data.exists():
-            sys.exit(f"no data file: {args.data}")
         title, axes = from_json(args.data)
 
     if args.title is not None:
         title = args.title
-    if len(axes) < 3:
-        sys.exit("a radar chart needs at least 3 axes")
 
-    args.out.parent.mkdir(parents=True, exist_ok=True)
+    out_base = args.out
+    out_base.parent.mkdir(parents=True, exist_ok=True)
     for theme in ("dark", "light"):
-        svg = render(title, axes, theme, args.size, args.rings, args.values,
-                     args.animate)
-        dest = args.out.with_name(f"{args.out.name}-{theme}.svg")
-        dest.write_text(svg, encoding="utf-8")
-        print(f"wrote {dest}  ({len(axes)} axes)")
+        svg = render(title, axes, theme=theme, size=args.size, rings=args.rings,
+                     show_values=args.values, animate=args.animate)
+        target = out_base.parent / f"{out_base.name}-{theme}.svg"
+        target.write_text(svg, encoding="utf-8")
+        print(f"wrote {target}  ({len(axes)} axes)")
 
 
 if __name__ == "__main__":

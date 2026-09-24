@@ -28,7 +28,7 @@ jobs:
           python-version: "3.12"
 
       - name: Skill radar
-        run: python scripts/radar.py --data assets/skills.json -o assets/radar
+        run: python scripts/radar.py --data assets/skills.json -o assets/radar --values
 
       - name: Language radar
         run: python scripts/radar.py --data assets/langmix.json -o assets/radar-langs --values
