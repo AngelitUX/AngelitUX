@@ -1,13 +1,13 @@
 {
   "title": "Security & Systems Skills",
-  "_comment": "Puntuación de 0 a 100. Modifica estos valores y el workflow de GitHub Actions redibujhrá el radar automÁticamente.",
+  "_comment": "Puntuación de 0 a 100. Modifica estos valores y el workflow de GitHub Actions redibujará el radar automáticamente.",
   "axes": [
-    { "label": "Administración Linux",        "value": 88 },
-    { "label": "Redes & Protocolos TCP/IP",   "value": 85 },
-    { "label": "Seguridad Defensiva & OWASP" ,"value": 80 },
-    { "label": "Docker & Contenedores",       "value": 78 },
-    { "label": "Automatización & Scripting",  "value": 82 },
-    { "label": "Hardening & Vulnerabilidades", "value": 75 },
+    { "label": "Administración Linux",        "value": 50 },
+    { "label": "Redes & Protocolos TCP/IP",   "value": 80 },
+    { "label": "Seguridad Defensiva & OWASP", "value": 30 },
+    { "label": "Docker & Contenedores",       "value": 80 },
+    { "label": "Automatización & Scripting",  "value": 65 },
+    { "label": "Hardening & Vulnerabilidades", "value": 50 },
     { "label": "Bases de Datos & APIs",       "value": 80 }
   ]
 }

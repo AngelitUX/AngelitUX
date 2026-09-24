@@ -16,15 +16,15 @@
     },
     {
       "label": "Git & CI/CD",
-      "value": 85
+      "value": 90
     },
     {
       "label": "TypeScript / JS",
-      "value": 78
+      "value": 65
     },
     {
       "label": "HTML5 / CSS3",
-      "value": 82
+      "value": 70
     }
   ]
 }

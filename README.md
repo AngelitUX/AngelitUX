@@ -10,7 +10,7 @@
   <!-- ==================== ANIMATED TYPING EFFECT ==================== -->
   <p align="center">
     <a href="https://github.com/AngelitUX">
-      <img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=600&size=20&duration=3000&pause=1000&color=C77DFF&center=true&vCenter=true&multiline=false&width=750&height=45&lines=%C3%81ngel+Pino+%E2%80%94+Ingeniero+Civil+Inform%C3%A1tico;Enfoque+en+Ciberseguridad+Defensiva+%26+Redes;Hardening+Linux+%C2%B7+TCP%2FIP+%C2%B7+Docker+%C2%B7+Python;Buscando+Pr%C3%A1ctica+Profesional+Junior" alt="Typing SVG" />
+      <img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=600&size=20&duration=3000&pause=1000&color=C77DFF&center=true&vCenter=true&multiline=false&width=750&height=45&lines=%C3%81ngel+Pino+C%C3%A1rdenas+%E2%80%94+Ingeniero+Civil+Inform%C3%A1tico;Enfoque+en+Ciberseguridad+Defensiva+%26+Redes;Hardening+Linux+%C2%B7+TCP%2FIP+%C2%B7+Docker+%C2%B7+Python;Buscando+Pr%C3%A1ctica+Profesional+Junior" alt="Typing SVG" />
     </a>
   </p>
 
@@ -37,35 +37,17 @@
 
 ### 📡 Telemetría // Perfil Profesional
 
-<table align="center" width="100%">
-  <tr>
-    <td width="28%" align="center" valign="middle">
-      <picture>
-        <source media="(prefers-color-scheme: dark)" srcset="assets/portrait-dark.svg">
-        <source media="(prefers-color-scheme: light)" srcset="assets/portrait-light.svg">
-        <img src="assets/portrait-dark.svg" alt="Ángel Pino" width="190">
-      </picture>
-      <br>
-      <sub><b>Ángel Pino</b></sub><br>
-      <sub><code>valpo-sec // node-cl</code></sub>
-    </td>
-    <td width="72%" valign="top">
-      <blockquote>
-        <i>Estudiante de 10º semestre de <b>Ingeniería Civil Informática</b> en la <b>Universidad de Valparaíso</b>, con enfoque en <b>Ciberseguridad Defensiva</b>, <b>Infraestructura de Redes</b> y <b>Administración de Sistemas Linux</b>.</i>
-      </blockquote>
-      <p>
-        Actualmente enfoco mi desarrollo profesional en la <b>seguridad informática defensiva</b>, el <b>análisis de vulnerabilidades (OWASP Top 10)</b>, el <b>hardening de entornos Linux</b> y el diseño e implementación de <b>redes seguras</b>. Cuento con experiencia práctica en desarrollo web full-stack modular y soporte técnico de infraestructura de red en el sector público.
-      </p>
-      <ul>
-        <li>🎯 <b>Objetivo Actual:</b> Inserción laboral / Práctica profesional junior en ciberseguridad, infraestructura de redes o administración de sistemas.</li>
-        <li>📍 <b>Ubicación:</b> Valparaíso, Chile.</li>
-        <li>🎓 <b>Formación:</b> Licenciatura en Ciencias de la Ingeniería (Universidad de Valparaíso) · Egresando 2026.</li>
-        <li>🛡️ <b>Cisco Networking Academy:</b> <i>Ethical Hacker</i> (En curso, 2026) · <i>Introduction to Cybersecurity</i> (2026).</li>
-        <li>💡 <b>Filosofía:</b> Seguridad por diseño, mínimos privilegios y automatización reproducible.</li>
-      </ul>
-    </td>
-  </tr>
-</table>
+> *Estudiante de 10º semestre de **Ingeniería Civil Informática** en la **Universidad de Valparaíso**, con enfoque en **Ciberseguridad Defensiva**, **Infraestructura de Redes** y **Administración de Sistemas Linux**.*
+
+Actualmente enfoco mi desarrollo profesional en la **seguridad informática defensiva**, el **análisis de vulnerabilidades (OWASP Top 10)**, el **hardening de entornos Linux** y el diseño e implementación de **redes seguras**. Cuento con experiencia práctica en desarrollo web full-stack modular y soporte técnico de infraestructura de red en el sector público.
+
+* 📍 **Ubicación:** Valparaíso, Chile.
+* 🎓 **Formación:** Licenciatura en Ciencias de la Ingeniería (Universidad de Valparaíso) · Egresando 2026.
+* 🛡️ **Certificaciones Cisco Networking Academy:**
+  * *Ethical Hacker* (En curso, 2026)
+  * *Introduction to Cybersecurity* (2026)
+* 💼 **LinkedIn:** [www.linkedin.com/in/angelgpinoc](https://www.linkedin.com/in/angelgpinoc/)
+* 💡 **Filosofía:** Seguridad por diseño, mínimos privilegios y automatización reproducible.
 
 ---
 
@@ -73,7 +55,7 @@
 
 <div align="center">
   <a href="https://skillicons.dev">
-    <img src="https://skillicons.dev/icons?i=linux,bash,python,docker,git,github,postgres,mysql,ts,js,angular,nestjs,firebase,c,cpp&perline=8" alt="Tech Stack Icons" />
+    <img src="https://skillicons.dev/icons?i=linux,bash,python,docker,git,github,postgres,mongodb,mysql,ts,js,angular,nestjs,c,cpp&perline=8" alt="Tech Stack Icons" />
   </a>
 </div>
 
@@ -83,10 +65,10 @@
 | :--- | :--- |
 | **Sistemas & Terminal** | Linux (Ubuntu, Debian, Kali), Bash Scripting, Systemd, Cron, SSH, Permissions & Hardening |
 | **Redes & Conectividad** | TCP/IP, DNS, DHCP, HTTP/HTTPS, Diagnóstico LAN, Enrutamiento, Nmap, Wireshark |
-| **Seguridad Defensiva** | OWASP Top 10, Políticas de Acceso (RBAC), Reglas de Seguridad Firestore, Análisis de Vulns |
+| **Seguridad Defensiva** | OWASP Top 10, Políticas de Acceso (RBAC), Reglas de Firewall (iptables), Análisis de Vulns |
 | **Contenedores & DevOps** | Docker, Docker Compose, Git, GitHub Actions, CI/CD pipelines básicos |
 | **Lenguajes & Backend** | Python (Automatización/Scripting), TypeScript, JavaScript, NestJS, APIs RESTful, C / C++ |
-| **Frontend & Bases de Datos** | Angular, HTML5, CSS3, PostgreSQL, MySQL, Google Firebase / Cloud Firestore |
+| **Bases de Datos** | PostgreSQL, MongoDB, MySQL |
 
 ---
 
@@ -146,9 +128,9 @@ Tarjetas de estadísticas autohospedadas y libres de dependencias externas caíd
 
 ```
 ┌──[ EstudiaUni.cl ] - Plataforma Universitaria Modular
-│   • Rol: Desarrollador Full-Stack (Angular, NestJS, Firebase)
+│   • Rol: Desarrollador Full-Stack (Angular, NestJS, MongoDB/PostgreSQL)
 │   • Implementación de arquitectura modular y consumo seguro de APIs RESTful.
-│   • Configuración de reglas de seguridad en Cloud Firestore y autenticación robusta.
+│   • Autenticación robusta y diseño de esquemas seguros.
 └──
 ┌──[ Dirección de Vialidad - MOP ] - Soporte Técnico e Infraestructura
 │   • Mantenimiento y diagnóstico de redes LAN, direccionamiento y resolución de incidencias.

@@ -1,69 +1,85 @@
 <!doctype html>
-<meta charset="utf-8">
-<title>profile assets preview</title>
-<style>
-  :root { color-scheme: dark }
-  body { background:#0d1117; color:#c9d1d9; font:15px/1.5 ui-sans-serif,Segoe UI,system-ui,sans-serif;
-         margin:0; padding:40px; }
-  h1 { font-size:20px; color:#aa9bef; letter-spacing:.02em }
-  h2 { font-size:13px; text-transform:uppercase; letter-spacing:.12em; color:#8b949e;
-       border-bottom:1px solid #21262d; padding-bottom:8px; margin:44px 0 18px }
-  .row { display:flex; gap:28px; flex-wrap:wrap; align-items:flex-start }
-  .card { background:#0d1117; border:1px solid #21262d; border-radius:10px; padding:18px }
-  .card.light { background:#fff }
-  .tag { font:11px ui-monospace,Consolas,monospace; color:#8b949e; display:block; margin-bottom:10px }
-  img { display:block; max-width:100% }
-  button { background:#21262d; color:#c9d1d9; border:1px solid #30363d; border-radius:6px;
-           padding:5px 12px; font:inherit; font-size:12px; cursor:pointer; margin-left:14px;
-           vertical-align:middle; text-transform:none; letter-spacing:0 }
-  button:hover { background:#30363d; border-color:#aa9bef; color:#aa9bef }
-  .missing { color:#8b949e; font-style:italic; font-size:13px }
-</style>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>Ángel Pino Cárdenas (@AngelitUX) — Telemetría & Banner en Vivo</title>
+  <style>
+    :root { color-scheme: dark; }
+    body { background: #070510; color: #f6f3fc; font: 15px/1.5 ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif; margin: 0; padding: 40px; }
+    h1 { font-size: 22px; color: #c77dff; letter-spacing: .02em; display: flex; align-items: center; gap: 12px; }
+    h2 { font-size: 13px; text-transform: uppercase; letter-spacing: .12em; color: #ff7a00; border-bottom: 1px solid #2c1c4f; padding-bottom: 8px; margin: 44px 0 18px; display: flex; align-items: center; justify-content: space-between; }
+    .row { display: flex; gap: 24px; flex-wrap: wrap; align-items: flex-start; }
+    .card { background: #0c081c; border: 1px solid #2c1c4f; border-radius: 14px; padding: 18px; box-shadow: 0 4px 24px rgba(0,0,0,0.5); }
+    .card.light { background: #ffffff; border-color: #ded2f3; }
+    .tag { font: 11px ui-monospace, Consolas, monospace; color: #9d8dc2; display: block; margin-bottom: 10px; font-weight: 600; }
+    img { display: block; max-width: 100%; border-radius: 8px; }
+    button { background: #1c1130; color: #ff9e00; border: 1px solid #ff7a00; border-radius: 6px; padding: 6px 14px; font: inherit; font-size: 12px; font-weight: 700; cursor: pointer; text-transform: none; transition: all .2s; }
+    button:hover { background: #ff7a00; color: #000; transform: translateY(-1px); }
+    .sub { color: #9d8dc2; font-size: 13px; margin-top: -6px; margin-bottom: 24px; }
+    .tip { background: #140d29; border-left: 3px solid #ff7a00; padding: 12px 16px; border-radius: 0 8px 8px 0; margin-bottom: 24px; font-size: 13.5px; color: #f3eefa; }
+  </style>
+</head>
+<body>
 
-<h1>profile assets — local preview</h1>
-<p class="missing">Each asset is shown against both a dark and a light card, the way GitHub will render it.</p>
+  <h1>⚡ Banner Terminal // Ángel Pino Cárdenas (@AngelitUX)</h1>
+  <p class="sub">Estructura Unix split-pane limpia, morfogénesis fluida y enlace a LinkedIn clickeable.</p>
 
-<h2>banner <button id="replay-banner">replay</button></h2>
-<div class="row">
-  <div class="card"><span class="tag">banner-dark.v9.svg (on dark)</span>
-    <img class="banner" data-base="assets/banner-dark.v9.svg" src="assets/banner-dark.v9.svg" width="880" onerror="this.replaceWith(Object.assign(document.createElement('p'),{className:'missing',textContent:'not generated yet — run scripts/banner/generate.py'}))"></div>
-  <div class="card light"><span class="tag" style="color:#57606a">banner-light.v9.svg (on light)</span>
-    <img class="banner" data-base="assets/banner-light.v9.svg" src="assets/banner-light.v9.svg" width="880" onerror="this.replaceWith(Object.assign(document.createElement('p'),{className:'missing',textContent:'not generated yet'}))"></div>
-</div>
-<script>
-  document.getElementById('replay-banner').onclick = () => {
-    document.querySelectorAll('img.banner').forEach(img => {
-      img.src = img.dataset.base + '?' + Date.now();
-    });
-  };
-</script>
+  <div class="tip">
+    💡 <b>Secuencia de Morfogénesis (Transición spline suave):</b>
+    <br>1. <b>Rostro estilizado</b> con haz de escaneo holográfico cian y brillo cuántico.
+    <br>2. <b>Símbolo de Terminal</b> (Ventana con cursor <code>&gt;_</code>).
+    <br>3. <b>Las Reliquias de la Muerte</b> (Harry Potter: Triángulo, Círculo y Varita).
+    <br>4. <b>El Candado</b> (Seguridad Defensiva y Protección).
+    <br>5. Retorno fluido y desacelerado hacia tu rostro.
+  </div>
 
-<h2>portrait <button id="replay">replay the load-in</button></h2>
-<div class="row">
-  <div class="card"><span class="tag">portrait-dark.svg (on dark)</span>
-    <img class="portrait" data-base="assets/portrait-dark.svg" src="assets/portrait-dark.svg" width="300" onerror="this.replaceWith(Object.assign(document.createElement('p'),{className:'missing',textContent:'not generated yet — run dotify.py'}))"></div>
-  <div class="card light"><span class="tag" style="color:#57606a">portrait-light.svg (on light)</span>
-    <img class="portrait" data-base="assets/portrait-light.svg" src="assets/portrait-light.svg" width="300" onerror="this.replaceWith(Object.assign(document.createElement('p'),{className:'missing',textContent:'not generated yet'}))"></div>
-</div>
-<script>
-  // The row-reveal runs once per image load, so force a fresh load to rewatch it.
-  document.getElementById('replay').onclick = () => {
-    document.querySelectorAll('img.portrait').forEach(img => {
-      img.src = img.dataset.base + '?' + Date.now();
-    });
-  };
-</script>
+  <h2>1. Banner Animado Principal (Dark Mode) <button id="replay-banner">🔄 Replay Animación Completa</button></h2>
+  <div class="row">
+    <div class="card" style="width: 100%; max-width: 1180px;">
+      <span class="tag">assets/banner-dark.svg (Modo Oscuro Oficial)</span>
+      <img class="banner" data-base="assets/banner-dark.svg" src="assets/banner-dark.svg" alt="Banner Dark" width="100%">
+    </div>
+  </div>
 
-<h2>skill radar</h2>
-<div class="row">
-  <div class="card"><span class="tag">radar-dark.svg</span><img src="assets/radar-dark.svg" width="440"></div>
-  <div class="card light"><span class="tag" style="color:#57606a">radar-light.svg</span><img src="assets/radar-light.svg" width="440"></div>
-</div>
+  <h2>2. Banner Animado Principal (Light Mode)</h2>
+  <div class="row">
+    <div class="card light" style="width: 100%; max-width: 1180px;">
+      <span class="tag" style="color:#645282">assets/banner-light.svg (Modo Claro Oficial)</span>
+      <img class="banner" data-base="assets/banner-light.svg" src="assets/banner-light.svg" alt="Banner Light" width="100%">
+    </div>
+  </div>
 
-<h2>language radar</h2>
-<div class="row">
-  <div class="card"><span class="tag">radar-langs-dark.svg</span>
-    <img src="assets/radar-langs-dark.svg" width="440" onerror="this.replaceWith(Object.assign(document.createElement('p'),{className:'missing',textContent:'generated by the Radar workflow (needs your username)'}))"></div>
-  <div class="card light"><span class="tag" style="color:#57606a">radar-langs-light.svg</span>
-    <img src="assets/radar-langs-light.svg" width="440" onerror="this.replaceWith(Object.assign(document.createElement('p'),{className:'missing',textContent:'not generated yet'}))"></div>
-</div>
+  <h2>3. Radar de Habilidades & Stack</h2>
+  <div class="row">
+    <div class="card">
+      <span class="tag">assets/radar-dark.svg</span>
+      <img src="assets/radar-dark.svg" width="420" alt="Radar Skills">
+    </div>
+    <div class="card">
+      <span class="tag">assets/radar-langs-dark.svg</span>
+      <img src="assets/radar-langs-dark.svg" width="420" alt="Radar Stack">
+    </div>
+  </div>
+
+  <h2>4. Estadísticas Autohospedadas de GitHub</h2>
+  <div class="row">
+    <div class="card">
+      <span class="tag">assets/card-stats-dark.svg</span>
+      <img src="assets/card-stats-dark.svg" width="440" alt="Stats Dark">
+    </div>
+    <div class="card">
+      <span class="tag">assets/metrics.languages.svg</span>
+      <img src="assets/metrics.languages.svg" width="440" alt="Languages">
+    </div>
+  </div>
+
+  <script>
+    document.getElementById('replay-banner').onclick = () => {
+      document.querySelectorAll('img.banner').forEach(img => {
+        img.src = img.dataset.base + '?t=' + Date.now();
+      });
+    };
+  </script>
+
+</body>
+</html>
