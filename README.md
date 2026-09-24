@@ -35,7 +35,7 @@
 
 ---
 
-### 📡 Telemetría // Perfil Profesional
+###  Telemetría // Perfil Profesional
 
 > *Estudiante de 10º semestre de **Ingeniería Civil Informática** en la **Universidad de Valparaíso**, con enfoque en **Ciberseguridad Defensiva**, **Infraestructura de Redes** y **Administración de Sistemas Linux**.*
 
@@ -51,7 +51,7 @@ Actualmente enfoco mi desarrollo profesional en la **seguridad informática defe
 
 ---
 
-### 🛠️ Arsenal Tecnológico
+###  Arsenal Tecnológico
 
 <div align="center">
   <a href="https://skillicons.dev">
